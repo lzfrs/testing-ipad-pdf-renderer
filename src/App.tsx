@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [pdfUrl, setPdfUrl] = useState("");
+  const [pdfUrl, setPdfUrl] = useState(
+    "https://drive.google.com/file/d/1eyGM5kEpsOjQOzgFnf8KtwX7B0sYZePG/preview"
+  );
 
   const [inputPdfUrl, setInputPdfUrl] = useState("");
 
@@ -38,12 +40,28 @@ function App() {
       </div>
 
       {pdfUrl && (
-        <object data={pdfUrl} type="application/pdf" height="800" width="800">
-          <span>
-            Unable to render PDF, click
-            <a href={pdfUrl}>here</a> to download it.
-          </span>
-        </object>
+        <div style={{ display: "contents" }}>
+          <div
+            style={{
+              display: "flex",
+              height: "970px",
+              justifyContent: "center",
+            }}
+          >
+            <object
+              data={pdfUrl}
+              type="application/pdf"
+              width="100%"
+              role="document"
+            >
+              <span>
+                Unable to render PDF, click
+                <a href={pdfUrl}>here</a> to download it.
+              </span>
+              <iframe src={pdfUrl} width={"100%"} height="970px"></iframe>
+            </object>
+          </div>
+        </div>
       )}
     </div>
   );
