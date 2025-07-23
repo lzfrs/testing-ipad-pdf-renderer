@@ -39,13 +39,14 @@ function App() {
 
       {pdfUrl && (
         <>
+          <h2>Object</h2>
           <object data={pdfUrl} type="application/pdf" height="800" width="800">
             <span>
               Unable to render PDF, click
               <a href={pdfUrl}>here</a> to download it.
             </span>
           </object>
-
+          <h2>IFrame</h2>
           <iframe src={pdfUrl} height="800" width="800"></iframe>
         </>
       )}
