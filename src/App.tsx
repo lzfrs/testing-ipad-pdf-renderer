@@ -38,12 +38,16 @@ function App() {
       </div>
 
       {pdfUrl && (
-        <object data={pdfUrl} type="application/pdf" height="800" width="800">
-          <span>
-            Unable to render PDF, click
-            <a href={pdfUrl}>here</a> to download it.
-          </span>
-        </object>
+        <>
+          <object data={pdfUrl} type="application/pdf" height="800" width="800">
+            <span>
+              Unable to render PDF, click
+              <a href={pdfUrl}>here</a> to download it.
+            </span>
+          </object>
+
+          <iframe src={pdfUrl} height="800" width="800"></iframe>
+        </>
       )}
     </div>
   );
